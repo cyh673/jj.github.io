@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>成渠</title>
+  </head>
+  <body>
+    <div style="text-align: center; font-size: larger">
+      <p>点击二维码，一起听歌吧（> ___ <）</p>
+    </div>
+    <div style="text-align: center">
+      <audio id="myAudio" src="./txzw.mp3"></audio>
+      <button
+        id="playPauseBtn"
+        style="margin-top: 20px; background-color: aqua"
+      >
+        <img src="2024.8..png" alt="播放" />
+      </button>
+    </div>
+
+    <script>
+      var audio = document.getElementById("myAudio");
+      var playPauseBtn = document.getElementById("playPauseBtn");
+      var playPauseImg = document.getElementById("playPauseImg");
+      var isPlaying = false;
+
+      playPauseBtn.addEventListener("click", function () {
+        if (isPlaying) {
+          audio.pause();
+          playPauseImg.src = "play.png";
+        } else {
+          audio.play();
+          playPauseImg.src = "pause.png";
+        }
+        isPlaying = !isPlaying;
+      });
+
+      audio.addEventListener("ended", function () {
+        playPauseImg.src = "play.png";
+        isPlaying = false;
+      });
+    </script>
+  </body>
+</html>
